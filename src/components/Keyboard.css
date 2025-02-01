@@ -1,21 +1,22 @@
 /* keyboard.css */
 .keyboard {
     display: flex;
-    height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: auto; /* Allow dynamic height */
 }
 
 .textcontainer {
-    width: 1018px;
+    width: 90%; /* Change to percentage for responsiveness */
+    max-width: 1018px; /* Set a max width */
     height: 100px;
     border: 1px solid rgba(0,0,0,0.25);
     overflow: auto;
     border-radius: 4px;
 }
 
-.textcontainer pre{
+.textcontainer pre {
     text-align: left;
     display: block;
     width: calc(100% - 40px);
@@ -26,10 +27,11 @@
 }
 
 .keyboardcontainer {
-    width: 90%;
+    width: 90%; /* Change to percentage for responsiveness */
     display: flex;
     justify-content: center;
     margin-top: 15px;
+    flex-wrap: wrap; /* Allow keys to wrap on smaller screens */
 }
 
 .container {
@@ -50,10 +52,11 @@
     align-items: center;
 }
 
+/* Key styles */
 .key {
     display: flex;
-    width: 60px;
-    height: 60px;
+    width: 60px; /* Original size for desktop */
+    height: 60px; /* Original height for desktop */
     margin: 5px;
     justify-content: center;
     flex-direction: column;
@@ -67,30 +70,110 @@
     transition: background-color ease-in-out 0.15s;
 }
 
-.key:hover{
+.key:hover {
     background-color: #3c4d56;
 }
 
-.row:first-child .key:first-child{
+/* Specific widths for keys based on their position */
+.row:first-child .key:first-child {
     width: 40px;
 }
 
-.row:first-child .key:last-child{
+.row:first-child .key:last-child {
     width: 80px;
 }
 
-.row:nth-child(3) .key:first-child{
+.row:nth-child(3) .key:first-child {
     width: 95px;
 }
-.row:nth-child(3) .key:last-child{
+
+.row:nth-child(3) .key:last-child {
     width: 95px;
 }
-.row:nth-child(4) .key:first-child{
+
+.row:nth-child(4) .key:first-child {
     width: 130px;
 }
-.row:nth-child(4) .key:last-child{
+
+.row:nth-child(4) .key:last-child {
     width: 130px;
 }
-.row:nth-child(5) .key:nth-child(3){
+
+.row:nth-child(5) .key:nth-child(3) {
     width: 550px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For mobile devices (up to 600px wide) */
+@media only screen and (max-width: 600px) {
+    .keyboard {
+        flex-direction: column; /* Keep vertical layout */
+        overflow-x: auto; /* Allow horizontal scroll if needed */
+    }
+
+    .keyboardcontainer {
+        flex-direction: row; /* Allow horizontal layout for keys */
+        justify-content: center; /* Center the keys */
+    }
+
+    .key {
+        width: 50px; /* Smaller keys for mobile, but keep proportions similar */
+        height: 50px; /* Smaller key height for mobile */
+        font-size: 14px; /* Smaller font size for keys */
+    }
+
+    .textcontainer {
+        height: 80px; /* Reduced height for mobile */
+    }
+
+    .textcontainer pre {
+        font-size: 16px; /* Smaller font size for mobile */
+    }
+
+    .container {
+        padding: 10px; /* Reduced padding for mobile */
+    }
+}
+
+/* For tablets (600px to 1024px wide) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .key {
+        width: 55px; /* Slightly smaller keys for tablets */
+        height: 55px; /* Slightly smaller key height for tablets */
+        font-size: 15px; /* Smaller font size for keys */
+    }
+
+    .textcontainer {
+        height: 90px; /* Adjusted height for tablets */
+    }
+
+    .textcontainer pre {
+        font-size: 18px; /* Smaller font size for tablets */
+    }
+
+    .container {
+        padding: 15px; /* Reduced padding for tablets */
+    }
+}
+
+/* For desktops (1024px and above) */
+@media only screen and (min-width: 1025px) {
+    .textcontainer {
+        height: 100px; /* Original height for desktop */
+    }
+
+    .textcontainer pre {
+        font-size: 20px; /* Original font size for desktop */
+    }
+
+    .key {
+        width: 60px; /* Original key size for desktop */
+        height: 60px; /* Original key height for desktop */
+        font-size: 16px; /* Original font size for keys */
+    }
+
+    .container {
+        padding: 20px; /* Original padding for desktop */
+    }
 }
