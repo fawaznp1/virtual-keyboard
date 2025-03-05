@@ -195,7 +195,7 @@ export default function Keyboard() {
                         ))}
                     </div>
                     <div className="row">
-                        {['Ctrl', 'Alt', ' ', 'Ctrl', 'Alt', '<', '>']
+                        {['CtrL', 'Alt', ' ', 'Ctrl', 'Alt', '<', '>']
                             .map((keyvalue, index) => (
                             <div key={index} className='key' 
                             onClick={() => handleKeyClick(keyvalue)}>
